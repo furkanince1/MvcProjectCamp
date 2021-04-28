@@ -59,7 +59,13 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
+    <Compile Include="Concrete\Repositories\AboutRepository.cs" />
+    <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
+    <Compile Include="Concrete\Repositories\ContactRepository.cs" />
+    <Compile Include="Concrete\Repositories\ContentRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="Concrete\Repositories\HeadingRepository.cs" />
+    <Compile Include="Concrete\Repositories\WriterRepository.cs" />
     <Compile Include="Migrations\202104242013143_mig1.cs" />
     <Compile Include="Migrations\202104242013143_mig1.designer.cs">
       <DependentUpon>202104242013143_mig1.cs</DependentUpon>
