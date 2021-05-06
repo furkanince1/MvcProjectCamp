@@ -10,31 +10,24 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        //ICategoryDal _categoryDal;
-        GenericRepository<Category> repo = new GenericRepository<Category>();
+        ICategoryDal _categoryDal;
 
-        /*public CategoryManager(ICategoryDal categoryDal)
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
             _categoryDal = categoryDal;
-        }*/
-
-        public List<Category> GetAllBL()
-        {
-            return repo.List();
         }
 
-        public void CategoryAdd(Category p)
+        public void CategoryAdd(Category category)
         {
-            if (p.CategoryName == "" || p.CategoryName.Length <= 3 || p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-            {
-                //hata mesajı
-            }
-            else
-            {
-                repo.Insert(p);
-            }
+            _categoryDal.Insert(category);
+        }
+
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
         }
     }
 }
