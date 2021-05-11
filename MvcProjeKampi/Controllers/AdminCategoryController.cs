@@ -14,7 +14,7 @@ namespace MvcProjeKampi.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-        
+
         public ActionResult Index()
         {
             var categoryvalues = categoryManager.GetList();
@@ -39,14 +39,32 @@ namespace MvcProjeKampi.Controllers
             {
                 foreach (var item in result.Errors)
                 {
-                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            
-            
+
             return View();
+
         }
 
+        public ActionResult DeteleCategory(int id)
+        {
+            var categoryvalue = categoryManager.GetById(id);
+            categoryManager.CategoryDelete(categoryvalue);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryvalue = categoryManager.GetById(id);
+            return View(categoryvalue);
+        }
 
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            categoryManager.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
     }
 }

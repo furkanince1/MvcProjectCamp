@@ -10,6 +10,7 @@
     <tr>
         <th>#</th>
         <th>Kategori Adı</th>
+        <th>Açıklama</th>
         <th>Sil</th>
         <th>Güncelle</th>
         <th>Başlıklar</th>
@@ -20,8 +21,10 @@
 <tr>
     <td>@item.CategoryId</td>
     <td>@item.CategoryName</td>
-    <td><a href="#" class="btn btn-danger">Sil</a></td>
-    <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+    <td>@item.CategoryDescription</td>
+    
+    <td><a href="/AdminCategory/DeteleCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+    <td><a href="/AdminCategory/EditCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
     <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
 </tr>
     }
