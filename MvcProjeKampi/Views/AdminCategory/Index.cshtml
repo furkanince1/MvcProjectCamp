@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model  List<Category>   
+@model  List<Category>
 
 @{
     ViewBag.Title = "Index";
@@ -15,21 +15,25 @@
         <th>Güncelle</th>
         <th>Başlıklar</th>
     </tr>
-    
+
     @foreach (var item in Model)
     {
-<tr>
-    <td>@item.CategoryId</td>
-    <td>@item.CategoryName</td>
-    <td>@item.CategoryDescription</td>
-    
-    <td><a href="/AdminCategory/DeteleCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-    <td><a href="/AdminCategory/EditCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
-    <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
-</tr>
+        <tr>
+            <td>@item.CategoryId</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+
+            <td><a href="/AdminCategory/DeteleCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminCategory/EditCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
+        </tr>
     }
 </table>
 
-<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>
+<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>&nbsp;
+<a href="/Statistic/Index" class="btn btn-info">İstatistikler</a>
+
+
+
 
 
