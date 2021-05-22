@@ -2281,6 +2281,9 @@
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Writer\Index.cshtml" />
     <Content Include="Views\Writer\AddWriter.cshtml" />
+    <Content Include="Views\Writer\EditWriter.cshtml" />
+    <Content Include="Views\Heading\Index.cshtml" />
+    <Content Include="Views\Heading\AddHeading.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2288,7 +2291,6 @@
     <Folder Include="Views\About\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Views\Content\" />
-    <Folder Include="Views\Heading\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
