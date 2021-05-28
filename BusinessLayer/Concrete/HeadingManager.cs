@@ -9,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class HeadingManager:IHeadingService
+    public class HeadingManager : IHeadingService
     {
         IHeadingDal _headingDal;
 
         public HeadingManager(IHeadingDal headingDal)
         {
-            _headingDal = headingDal;   
+            _headingDal = headingDal;
         }
 
         public void HeadingDelete(Heading heading)
         {
-            _headingDal.Delete(heading);
+            _headingDal.Update(heading);
         }
 
         public void HeadingUpdate(Heading heading)
@@ -41,6 +41,11 @@ namespace BusinessLayer.Concrete
         public void HeadingAdd(Heading heading)
         {
             _headingDal.Insert(heading);
+        }
+
+        public void ActiveHeading(Heading heading)
+        {
+            _headingDal.Update(heading);
         }
     }
 }

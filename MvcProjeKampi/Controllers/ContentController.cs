@@ -17,5 +17,13 @@ namespace MvcProjeKampi.Controllers
         {
             return View();
         }
+
+        public ActionResult ContentByHeading(int id)
+        {
+            var contentvalues = contentManager.GetListByHeadingId(id);
+            
+            
+            return View(contentvalues);
+        }
     }
 }

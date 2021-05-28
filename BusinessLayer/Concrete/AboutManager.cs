@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,31 @@ namespace BusinessLayer.Concrete
         public AboutManager(IAboutDal aboutDal)
         {
             _aboutDal = aboutDal;
+        }
+
+        public void AboutDelete(About about)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AboutUpdate(About about)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CategoryAdd(About about)
+        {
+            throw new NotImplementedException();
+        }
+
+        public About GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<About> GetList()
+        {
+            throw new NotImplementedException();
         }
     }
 }
