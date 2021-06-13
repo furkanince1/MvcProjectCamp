@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,25 @@ namespace MvcProjeKampi.Controllers
     public class ContactController : Controller
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
-        
-        // GET: Contact
+        ContactValidator validationRules = new ContactValidator();
+
         public ActionResult Index()
         {
-            return View();
+            var contactvalues = contactManager.GetList();
+            return View(contactvalues);
         }
+
+        public ActionResult GetContactDetails(int id)
+        {
+            var contactvalues = contactManager.GetById(id);
+            
+            return View(contactvalues);
+        }
+
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
+        }
+
     }
 }

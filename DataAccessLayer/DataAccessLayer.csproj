@@ -56,6 +56,8 @@
     <Compile Include="Abstract\IContactDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IHeadingDal.cs" />
+    <Compile Include="Abstract\IImageFileDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
@@ -71,6 +73,8 @@
     <Compile Include="EntityFramework\EfContactDal.cs" />
     <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfHeadingDal.cs" />
+    <Compile Include="EntityFramework\EfImageFileDal.cs" />
+    <Compile Include="EntityFramework\EfMessageDal.cs" />
     <Compile Include="EntityFramework\EfWriterDal.cs" />
     <Compile Include="Migrations\202104242013143_mig1.cs" />
     <Compile Include="Migrations\202104242013143_mig1.designer.cs">
@@ -99,6 +103,18 @@
     <Compile Include="Migrations\202105271344290_mig_headingstatusadd.cs" />
     <Compile Include="Migrations\202105271344290_mig_headingstatusadd.designer.cs">
       <DependentUpon>202105271344290_mig_headingstatusadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106092301440_mig_add_message.cs" />
+    <Compile Include="Migrations\202106092301440_mig_add_message.designer.cs">
+      <DependentUpon>202106092301440_mig_add_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106122142203_mig_contantdate-add.cs" />
+    <Compile Include="Migrations\202106122142203_mig_contantdate-add.designer.cs">
+      <DependentUpon>202106122142203_mig_contantdate-add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106130017319_mig_addimage_file.cs" />
+    <Compile Include="Migrations\202106130017319_mig_addimage_file.designer.cs">
+      <DependentUpon>202106130017319_mig_addimage_file.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +150,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105271344290_mig_headingstatusadd.resx">
       <DependentUpon>202105271344290_mig_headingstatusadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106092301440_mig_add_message.resx">
+      <DependentUpon>202106092301440_mig_add_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122142203_mig_contantdate-add.resx">
+      <DependentUpon>202106122142203_mig_contantdate-add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106130017319_mig_addimage_file.resx">
+      <DependentUpon>202106130017319_mig_addimage_file.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
