@@ -17,7 +17,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult Index()
         {
             var aboutvalues = aboutManager.GetList();
-            
+
             return View(aboutvalues);
         }
         [HttpPost]
@@ -27,11 +27,26 @@ namespace MvcProjeKampi.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult UpdateAbout(int id)
+        {
+            var result = aboutManager.GetById(id);
+            if (result.AboutStatus == true)
+            {
+                result.AboutStatus = false;
+            }
+            else
+            {
+                result.AboutStatus = true;
+            }
+            aboutManager.AboutUpdate(result);
+            return RedirectToAction("Index");
+
+
+        }
+
         public PartialViewResult AboutPartial()
         {
             return PartialView();
         }
-
-
     }
 }

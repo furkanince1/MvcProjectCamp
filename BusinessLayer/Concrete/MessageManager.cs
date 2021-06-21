@@ -18,6 +18,11 @@ namespace BusinessLayer.Concrete
             _messageDal = messageDal;
         }
 
+        public List<Message> GetAllRead()
+        {
+            return _messageDal.List(m => m.ReceiverMail == "admin@gail.com").Where(m => m.IsRead == false).ToList();
+        }
+
         public Message GetById(int id)
         {
             return _messageDal.Get(x => x.MessageId == id);
@@ -33,6 +38,11 @@ namespace BusinessLayer.Concrete
             return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
 
+        public List<Message> IsDraft()
+        {
+            return _messageDal.List(x => x.IsDraft == true);
+        }
+
         public void MessageAdd(Message message)
         {
             _messageDal.Insert(message);
@@ -40,12 +50,12 @@ namespace BusinessLayer.Concrete
 
         public void MessageDelete(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(message);
         }
 
         public void MessageUpdate(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(message);
         }
     }
 }

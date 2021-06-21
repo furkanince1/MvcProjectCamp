@@ -31,28 +31,57 @@ namespace MvcProjeKampi.Controllers
         [HttpGet]
         public ActionResult NewMessage()
         {
-            
+
 
             return View();
         }
         [HttpPost]
-        public ActionResult NewMessage(Message message)
+        public ActionResult NewMessage(Message message, string button)
         {
-            ValidationResult results = messageValidator.Validate(message);
-            if (results.IsValid)
+            ValidationResult validationResult = messageValidator.Validate(message);
+            if (button == "add")
             {
-                message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                
-                messageManager.MessageAdd(message);
-                return RedirectToAction("SendBox");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
+                if (validationResult.IsValid)
                 {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    message.SenderMail = "admin@gmail.com";
+                    message.IsDraft = false;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    messageManager.MessageAdd(message);
+                    return RedirectToAction("Sendbox");
+                }
+                else
+                {
+                    foreach (var item in validationResult.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
                 }
             }
+
+            else if (button == "draft")
+            {
+                if (validationResult.IsValid)
+                {
+
+                    message.SenderMail = "admin@gmail.com";
+                    message.IsDraft = true;
+                    message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                    messageManager.MessageAdd(message);
+                    return RedirectToAction("Draft");
+                }
+                else
+                {
+                    foreach (var item in validationResult.Errors)
+                    {
+                        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    }
+                }
+            }
+            else if (button == "cancel")
+            {
+                return RedirectToAction("NewMessage");
+            }
+
             return View();
 
 
@@ -72,5 +101,62 @@ namespace MvcProjeKampi.Controllers
             return View(values);
         }
 
+
+        public ActionResult DeleteMessage(int id)
+        {
+            var result = messageManager.GetById(id);
+            if (result.Trash == true)
+            {
+                result.Trash = false;
+            }
+            else
+            {
+                result.Trash = true;
+            }
+            messageManager.MessageDelete(result);
+            return RedirectToAction("Inbox");
+
+        }
+
+        public ActionResult Draft()
+        {
+            var result = messageManager.IsDraft();
+            return View(result);
+        }
+
+        public ActionResult GetDraftDetails(int id)
+        {
+            var result = messageManager.GetById(id);
+            return View(result);
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var result = messageManager.GetById(id);
+            if (result.IsRead == false)
+            {
+                result.IsRead = true;
+            }
+            else
+            {
+                result.IsRead = false;
+            }
+            messageManager.MessageUpdate(result);
+            return RedirectToAction("Inbox");
+        }
+
+        public ActionResult MessageRead()
+        {
+            var result = messageManager.GetListInbox().Where(m => m.IsRead == true).ToList();
+            return View(result);
+        }
+
+        public ActionResult MessageUnRead()
+        {
+            var result = messageManager.GetAllRead();
+            return View(result);
+        }
+
     }
 }
+    
