@@ -37,19 +37,13 @@ namespace BusinessLayer.Concrete
             return _adminDal.Get(x => x.AdminId == id);
         }
 
-        public Admin GetByUserName(string username)
-        {
-            return _adminDal.Get(x => x.AdminUserName == username);
-        }
+        
 
         public List<Admin> GetList()
         {
             return _adminDal.List();
         }
 
-        public Admin GetUsernamePassword(string username, string password)
-        {
-            return _adminDal.Get(x => x.AdminUserName == username && x.AdminPassword == password);
-        }
+        
     }
 }

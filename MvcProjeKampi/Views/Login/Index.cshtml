@@ -1,67 +1,71 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
-
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <title>İnce Sözlük Admin Girişi</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="~/AdminLTE-3.0.4/login-form-19/css/style.css">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>| Log in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body>
-    <section class="ftco-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center mb-5">
-                    <h2 class="heading-section">İnce Sözlük Admin Girişi</h2>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 col-lg-4">
-                    <div class="login-wrap py-5">
-                        <div class="img d-flex align-items-center justify-content-center" style="background-image: url(/AdminLTE-3.0.4/login-form-19/images/bg.jpg);"></div>
-                        <h3 class="text-center mb-0">Hoş Geldiniz!</h3>
-                        <p class="text-center">Lütfen Bilgilerinizi İlgili Alanlara Girin!</p>
-                        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-                                <input type="text" class="form-control" name= "AdminUserName" placeholder="Kullanıcı Adı" required>
-                            </div><div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
-                                <input type="password" class="form-control" name= "AdminPassword"  placeholder="*******" required>
-                            </div><div class="form-group d-md-flex">
-                                <div class="w-100 text-md-right">
-                                    <a href="#">Şifremi Unuttum</a>
-                                </div>
-                            </div><div class="form-group">
-                                <button type="submit" class="btn form-control btn-primary rounded submit px-3">Giriş Yap</button>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <b>İNCE SÖZLÜK</b><br />Admin Girişi
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="text-center">Hoş Geldiniz</p>
+                <p class="text-center text-danger"> @ViewData["ErrorMessage"] </p>
+                @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                {
+                    <div class="input-group mb-3">
+                        <input type="email" name="AdminUserName" class="form-control" placeholder="Kullanıcı Adı">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
                             </div>
-                        }
-                        <div class="w-100 text-center mt-4 text">
-                            <a href="#">ANA SAYFAYA DÖN</a>
                         </div>
                     </div>
-                </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="AdminPassword" class="form-control" placeholder="Şifre">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        @*<div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">
+                                    Beni Hatırla
+                                </label>
+                            </div>*@
+                        <div class="col-12">
+                            <div class="g-recaptcha" data-sitekey="6Lfw6T8bAAAAAJtjSvu3jwexvnigeu-sTp-uvd-R"></div>
+                            <button type="submit" class="btn btn-primary btn-block">Giriş</button>
+                        </div>
+                    </div>
+                }
+                <p class="mb-1">
+                    <a href="forgot-password.html">Şifremi Unuttum</a>
+                </p>
+                <p class="mb-0">
+                    <a href="~/Home/Index" class="text-center">Ana Sayfaya Dön</a>
+                </p>
             </div>
         </div>
-    </section>
-
-    <script src="~/AdminLTE-3.0.4/login-form-19/js/jquery.min.js"></script>
-    <script src="~/AdminLTE-3.0.4/login-form-19/js/popper.js"></script>
-    <script src="~/AdminLTE-3.0.4/login-form-19/js/bootstrap.min.js"></script>
-    <script src="~/AdminLTE-3.0.4/login-form-19/js/main.js"></script>
-
+    </div>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
 </body>
 </html>
-
-

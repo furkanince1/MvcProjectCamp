@@ -140,6 +140,10 @@
     <Compile Include="Migrations\202106212243545_mig_login_v1.designer.cs">
       <DependentUpon>202106212243545_mig_login_v1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106262049442_mig_update_e.cs" />
+    <Compile Include="Migrations\202106262049442_mig_update_e.designer.cs">
+      <DependentUpon>202106262049442_mig_update_e.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -198,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106212243545_mig_login_v1.resx">
       <DependentUpon>202106212243545_mig_login_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106262049442_mig_update_e.resx">
+      <DependentUpon>202106262049442_mig_update_e.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

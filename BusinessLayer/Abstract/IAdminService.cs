@@ -14,7 +14,6 @@ namespace BusinessLayer.Abstract
         Admin GetById(int id);
         void AdminDelete(Admin admin);
         void AdminUpdate(Admin admin);
-        Admin GetUsernamePassword(string username, string password);
-        Admin GetByUserName(string username);
+        
     }
 }
