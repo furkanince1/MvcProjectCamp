@@ -7,8 +7,6 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.Writers", "WriterPasswordHash", c => c.Binary());
-            AddColumn("dbo.Writers", "WriterPasswordSalt", c => c.Binary());
             AlterColumn("dbo.Admins", "AdminUserName", c => c.Binary());
             AlterColumn("dbo.Admins", "AdminRole", c => c.String());
             DropColumn("dbo.Writers", "WriterPassword");

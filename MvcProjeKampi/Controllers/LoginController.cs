@@ -69,6 +69,8 @@ namespace MvcProjeKampi.Controllers
             }
         }
 
+        
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
